@@ -38,7 +38,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="require('../assets/img/home/slider2.jpg')"
+            :src="require('../assets/img/home/toppicks.jpg')"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
@@ -53,7 +53,7 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <v-card>
           <v-img
-            :src="require('../assets/img/home/slider3.jpg')"
+            :src="require('../assets/img/home/slider9.jpg')"
             class="white--text align-center"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="400px"
@@ -75,7 +75,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Noise Canselling</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption" href="/shop" text
                 >SHOP NOW
@@ -95,7 +95,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">Premium Sound</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption" href="/shop" text
                 >SHOP NOW
@@ -115,7 +115,7 @@
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             height="300px"
           >
-            <h1 class="text-center font-size">Lorem & Ipsum</h1>
+            <h1 class="text-center font-size">3D Audio</h1>
             <div class="text-center mt-2">
               <v-btn class="white--text caption" href="/shop" text
                 >SHOP NOW
@@ -132,7 +132,7 @@
       <v-row no-gutters>
         <v-col :cols="12">
           <v-card-text class="" tile outlined>
-            <v-card-title class="subheading">Deals of the Day</v-card-title>
+            <v-card-title class="subheading">Brand Collection</v-card-title>
             <v-divider></v-divider>
             <div class="row">
               <div class="col-12 col-md-3 col-sm-6 col-xs-6 text-center">
@@ -141,14 +141,14 @@
                     <v-img
                       class="white--text align-end"
                       height="200px"
-                      :src="require('../assets/img/home/deal1.jpg')"
+                      :src="require('../assets/img/home/deal5.jpg')"
                     >
-                      <v-card-title>Bags & Purses </v-card-title>
+                      <v-card-title>Bose</v-card-title>
                     </v-img>
 
                     <v-card-text class="text--primary text-center">
                       <div>Upto 60% + Extra 10%</div>
-                      <div>Baggit, Zara, Fossil</div>
+                      <div>SoundSport, QuietComfort</div>
                     </v-card-text>
 
                     <div class="text-center">
@@ -165,14 +165,14 @@
                     <v-img
                       class="white--text align-end"
                       height="200px"
-                      :src="require('../assets/img/home/deal2.jpg')"
+                      :src="require('../assets/img/home/deal6.jpg')"
                     >
-                      <v-card-title>T-Shirt </v-card-title>
+                      <v-card-title>SONY</v-card-title>
                     </v-img>
 
                     <v-card-text class="text--primary text-center">
                       <div>Upto 50%</div>
-                      <div>Zara, Selected, Celio</div>
+                      <div>LDAC, 1000XM4, XTRABASS</div>
                     </v-card-text>
 
                     <div class="text-center">
@@ -189,14 +189,14 @@
                     <v-img
                       class="white--text align-end"
                       height="200px"
-                      :src="require('../assets/img/home/deal3.jpg')"
+                      :src="require('../assets/img/home/deal7.jpg')"
                     >
-                      <v-card-title>Jeans </v-card-title>
+                      <v-card-title>Jabra </v-card-title>
                     </v-img>
 
                     <v-card-text class="text--primary text-center">
                       <div>Upto 60% + Extra 10%</div>
-                      <div>Jack & Jones, Levis</div>
+                      <div>Elite 85t, Elite Active</div>
                     </v-card-text>
 
                     <div class="text-center">
@@ -213,14 +213,14 @@
                     <v-img
                       class="white--text align-end"
                       height="200px"
-                      :src="require('../assets/img/home/deal4.jpg')"
+                      :src="require('../assets/img/home/deal8.jpg')"
                     >
-                      <v-card-title>Shoes </v-card-title>
+                      <v-card-title>Sennheiser </v-card-title>
                     </v-img>
 
                     <v-card-text class="text--primary text-center">
                       <div>Upto 60% + Extra 10%</div>
-                      <div>Nike, Adidas, Puma</div>
+                      <div>Momentum Wireless, HD650</div>
                     </v-card-text>
 
                     <div class="text-center">
