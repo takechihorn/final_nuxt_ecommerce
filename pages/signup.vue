@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 <template>
   <div id="app">
     <v-app>
       <v-dialog v-model="dialog" persistent max-width="500px" min-width="360px">
-        <div v-if="!$auth.isAuthenticated">
+        <div>
           <v-tabs
             v-model="tab"
             show-arrows
@@ -13,22 +14,23 @@
           >
             <v-tabs-slider color="purple darken-4"></v-tabs-slider>
             <v-tab>
-              <v-icon large>mdi-login</v-icon>
-              <div class="caption py-1">Login</div>
+              <v-icon large>mdi-account-plus</v-icon>
+              <div class="caption py-1">signup</div>
             </v-tab>
             <v-tab-item>
               <v-card class="px-4">
                 <v-card-text>
                   <v-form
+                    v-if="step == steps.register"
                     ref="loginForm"
                     v-model="valid"
                     lazy-validation
-                    @submit.prevent="login"
+                    @submit.prevent="register"
                   >
                     <v-row>
                       <v-col cols="12">
                         <v-text-field
-                          v-model="form.email"
+                          v-model="registerForm.email"
                           type="email"
                           :rules="EmailRules"
                           label="Email"
@@ -37,7 +39,7 @@
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
-                          v-model="form.password"
+                          v-model="registerForm.password"
                           :append-icon="show1 ? 'eye' : 'eye-off'"
                           :rules="[rules.required, rules.min]"
                           :type="show1 ? 'text' : 'password'"
@@ -59,27 +61,55 @@
                           color="success"
                           @click="validate"
                         >
-                          Login
+                          Signup
                         </v-btn>
                       </v-col>
                     </v-row>
                   </v-form>
-                  <nuxt-link to="/signup">Need an account? Signup</nuxt-link>
+                  <v-form
+                    v-else
+                    ref="loginForm"
+                    v-model="valid"
+                    lazy-validation
+                    @submit.prevent="confirm"
+                  >
+                    <v-row>
+                      <v-col cols="12">
+                        <v-text-field
+                          v-model="confirmForm.email"
+                          :rules="EmailRules"
+                          label="Email"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          v-model="confirmForm.code"
+                          label="Code"
+                          type="code"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col class="d-flex" cols="12" sm="6" xsm="12"> </v-col>
+                      <v-spacer></v-spacer>
+                      <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
+                        <v-btn
+                          type="submit"
+                          x-large
+                          block
+                          :disabled="!valid"
+                          color="success"
+                          @click="validate"
+                        >
+                          confirm
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-form>
+                  <nuxt-link to="/login">Have an account? Login</nuxt-link>
                 </v-card-text>
               </v-card>
             </v-tab-item>
           </v-tabs>
-        </div>
-        <div v-else>
-          You're logged in as {{ $auth.email }}.
-          <v-btn
-            x-large
-            block
-            color="success"
-            @click="$store.dispatch('auth/logout')"
-          >
-            Logout
-          </v-btn>
         </div>
       </v-dialog>
     </v-app>
@@ -87,14 +117,27 @@
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
+const steps = {
+  register: 'REGISTER',
+  confirm: 'CONFIRM',
+}
 export default {
   data: () => ({
-    form: {
+    steps: { ...steps },
+    step: steps.register,
+    registerForm: {
       email: '',
       password: '',
+      errors: [],
+    },
+    confirmForm: {
+      email: '',
+      code: '',
     },
     dialog: true,
     tab: 0,
+    tabs: [{ name: 'Signup', icon: 'mdi-account-plus' }],
     valid: true,
     EmailRules: [
       (v) => !!v || 'Required',
@@ -113,9 +156,19 @@ export default {
     },
   },
   methods: {
-    async login() {
+    async register() {
       try {
-        await this.$store.dispatch('auth/login', this.form)
+        await this.$store.dispatch('auth/register', this.registerForm)
+        this.confirmForm.email = this.registerForm.email
+        this.step = this.steps.confirm
+      } catch (error) {
+        console.log({ error })
+      }
+    },
+    async confirm() {
+      try {
+        await this.$store.dispatch('auth/confirmRegistration', this.confirmForm)
+        await this.$store.dispatch('auth/login', this.registerForm)
         this.$router.push('/')
       } catch (error) {
         console.log({ error })

@@ -13,25 +13,24 @@
           ><v-icon>mdi-headphones</v-icon>&nbsp;HeadGears</a
         >
       </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        label="Search"
-        class="hidden-sm-and-down pl-10 ml-4"
-      />
       <v-spacer />
+      <div v-if="$auth.isAuthenticated">
+        You're logged in as {{ $auth.email }}
+      </div>
       <div v-if="!$auth.isAuthenticated">
         <v-btn href="/login" icon>
           <v-icon>mdi-login</v-icon>
         </v-btn>
-        <v-btn href="/register" icon>
+        <v-btn href="/signup" icon>
           <v-icon>mdi-account-plus</v-icon>
+        </v-btn>
+        <v-btn href="/cart" icon>
+          <!-- <v-badge content="2" value="2" color="green" overlap> -->
+          <v-icon>mdi-cart</v-icon>
+          <!-- </v-badge> -->
         </v-btn>
       </div>
       <div v-else>
-        <p>You're logged in as {{ $auth.email }}</p>
         <v-btn icon @click="$store.dispatch('auth/logout')">
           <v-icon>mdi-logout</v-icon>
         </v-btn>
@@ -41,12 +40,12 @@
         <v-btn icon>
           <v-icon>mdi-credit-card-check-outline</v-icon>
         </v-btn>
+        <v-btn href="/cart" icon>
+          <!-- <v-badge content="2" value="2" color="green" overlap> -->
+          <v-icon>mdi-cart</v-icon>
+          <!-- </v-badge> -->
+        </v-btn>
       </div>
-      <v-btn href="/cart" icon>
-        <!-- <v-badge content="2" value="2" color="green" overlap> -->
-        <v-icon>mdi-cart</v-icon>
-        <!-- </v-badge> -->
-      </v-btn>
     </v-app-bar>
     <v-main>
       <v-bottom-navigation :value="activeBtn" color="primary" horizontal>
@@ -60,13 +59,9 @@
             </v-btn>
           </template>
           <v-card class="mx-auto" max-width="344" outlined>
-            <v-list-item
-              v-for="(item, index) in items"
-              :key="index"
-              href="/shop"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
+            <a href="/shop">
+              <span>Shop</span>
+            </a>
           </v-card>
         </v-menu>
         <a href="/product" class="v-btn">
@@ -119,13 +114,6 @@
 export default {
   data() {
     return {
-      items: [
-        { title: 'T-Shirts' },
-        { title: 'Jackets' },
-        { title: 'Shirts' },
-        { title: 'Jeans' },
-        { title: 'Shoes' },
-      ],
       activeBtn: 1,
     }
   },
