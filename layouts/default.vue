@@ -9,7 +9,7 @@
       <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
 
       <v-toolbar-title style="width: 350px">
-        <a href="/" class="white--text" style="text-decoration: none"
+        <a to="/" class="white--text" style="text-decoration: none"
           ><v-icon>mdi-headphones</v-icon>&nbsp;HeadGears</a
         >
       </v-toolbar-title>
@@ -18,15 +18,17 @@
         You're logged in as {{ $auth.email }}
       </div>
       <div v-if="!$auth.isAuthenticated">
-        <v-btn href="/login" icon>
+        <v-btn to="/login" icon>
           <v-icon>mdi-login</v-icon>
         </v-btn>
-        <v-btn href="/signup" icon>
+        <v-btn to="/signup" icon>
           <v-icon>mdi-account-plus</v-icon>
         </v-btn>
-        <v-btn href="/cart" icon>
+        <v-btn to="/cart" icon>
+          <v-badge content="2" value="2" color="green" overlap>
+            <v-icon>mdi-cart</v-icon>
+          </v-badge>
           <!-- <v-badge content="2" value="2" color="green" overlap> -->
-          <v-icon>mdi-cart</v-icon>
           <!-- </v-badge> -->
         </v-btn>
       </div>
@@ -37,37 +39,30 @@
         <v-btn icon>
           <v-icon>mdi-account-check</v-icon>
         </v-btn>
-        <v-btn icon>
+        <v-btn to="/checkout" icon>
           <v-icon>mdi-credit-card-check-outline</v-icon>
         </v-btn>
-        <v-btn href="/cart" icon>
+        <v-btn to="/cart" icon>
           <!-- <v-badge content="2" value="2" color="green" overlap> -->
-          <v-icon>mdi-cart</v-icon>
+          <v-badge content="2" value="2" color="green" overlap>
+            <v-icon>mdi-cart</v-icon>
+          </v-badge>
           <!-- </v-badge> -->
         </v-btn>
       </div>
     </v-app-bar>
     <v-main>
       <v-bottom-navigation :value="activeBtn" color="primary" horizontal>
-        <a href="/" class="v-btn">
+        <v-btn href="/" class="v-btn">
           <span>Home</span>
-        </a>
-        <v-menu open-on-hover offset-y>
-          <template v-slot:activator="{ on }">
-            <v-btn v-on="on">
-              <span>Shop</span>
-            </v-btn>
-          </template>
-          <v-card class="mx-auto" max-width="344" outlined>
-            <a href="/shop">
-              <span>Shop</span>
-            </a>
-          </v-card>
-        </v-menu>
-        <a href="/product" class="v-btn">
+        </v-btn>
+        <v-btn href="/shop" class="v-btn">
+          <span>Shop</span>
+        </v-btn>
+        <v-btn href="/product" class="v-btn">
           <span>Product</span>
-        </a>
-        <v-btn href="/blog">
+        </v-btn>
+        <v-btn href="/blog" class="v-btn">
           <span>Blog</span>
         </v-btn>
       </v-bottom-navigation>
@@ -116,6 +111,11 @@ export default {
     return {
       activeBtn: 1,
     }
+  },
+  computed: {
+    count() {
+      return this.$store.getters['cart/cartItemCount']
+    },
   },
 }
 </script>

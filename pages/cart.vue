@@ -21,7 +21,7 @@
                     <v-list-item key="1">
                       <v-list-item-avatar>
                         <v-img
-                          :src="require('../assets/img/shop/1.jpg')"
+                          :src="require('../assets/img/shop/slider1.jpg')"
                         ></v-img>
                       </v-list-item-avatar>
 
@@ -51,7 +51,7 @@
                     <v-list-item key="1">
                       <v-list-item-avatar>
                         <v-img
-                          :src="require('../assets/img/shop/2.jpg')"
+                          :src="require('../assets/img/shop/slider2.jpg')"
                         ></v-img>
                       </v-list-item-avatar>
 
@@ -179,5 +179,10 @@ export default {
       },
     ],
   }),
+  computed: {
+    count() {
+      return this.$store.state.cartItemCount
+    },
+  },
 }
 </script>

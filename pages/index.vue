@@ -45,7 +45,7 @@
           >
             <h1 class="text-center font-size">Top Picks</h1>
             <div class="text-center">
-              <v-btn href="/shop" class="white--text" outlined>SHOP NOW</v-btn>
+              <v-btn to="/shop" class="white--text" outlined>SHOP NOW</v-btn>
             </div>
           </v-img>
         </v-card>
@@ -60,7 +60,7 @@
           >
             <h1 class="text-center font-size">New Arrivals</h1>
             <div class="text-center">
-              <v-btn href="/shop" class="white--text" outlined>SHOP NOW</v-btn>
+              <v-btn to="/shop" class="white--text" outlined>SHOP NOW</v-btn>
             </div>
           </v-img>
         </v-card>
@@ -77,7 +77,7 @@
           >
             <h1 class="text-center font-size">Noise Canselling</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" href="/shop" text
+              <v-btn class="white--text caption" to="/shop" text
                 >SHOP NOW
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
@@ -97,7 +97,7 @@
           >
             <h1 class="text-center font-size">Premium Sound</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" href="/shop" text
+              <v-btn class="white--text caption" to="/shop" text
                 >SHOP NOW
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
@@ -117,7 +117,7 @@
           >
             <h1 class="text-center font-size">3D Audio</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption" href="/shop" text
+              <v-btn class="white--text caption" to="/shop" text
                 >SHOP NOW
                 <v-icon class="white--text caption"
                   >mdi-arrow-right</v-icon
@@ -152,7 +152,7 @@
                     </v-card-text>
 
                     <div class="text-center">
-                      <v-btn href="/shop" class="ma-2" outlined color="info">
+                      <v-btn to="/shop" class="ma-2" outlined color="info">
                         Explore
                       </v-btn>
                     </div>
@@ -176,7 +176,7 @@
                     </v-card-text>
 
                     <div class="text-center">
-                      <v-btn href="/shop" class="ma-2" outlined color="info">
+                      <v-btn to="/shop" class="ma-2" outlined color="info">
                         Explore
                       </v-btn>
                     </div>
@@ -200,7 +200,7 @@
                     </v-card-text>
 
                     <div class="text-center">
-                      <v-btn href="/shop" class="ma-2" outlined color="info">
+                      <v-btn to="/shop" class="ma-2" outlined color="info">
                         Explore
                       </v-btn>
                     </div>
@@ -224,7 +224,7 @@
                     </v-card-text>
 
                     <div class="text-center">
-                      <v-btn href="/shop" class="ma-2" outlined color="info">
+                      <v-btn to="/shop" class="ma-2" outlined color="info">
                         Explore
                       </v-btn>
                     </div>
