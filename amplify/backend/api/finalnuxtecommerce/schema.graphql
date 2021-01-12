@@ -20,6 +20,12 @@ type Product
   orders: [ProductOrder] @connection(keyName: "byProduct", fields: ["id"])
 }
 
+type Comment
+  @model
+  @auth(rules:[
+    { allow:public, operations: [create,read,delete]}
+  ]){}
+
 type ProductOrder
   @model(queries: null, subscriptions: null)
   @key(name: "byProduct", fields: ["product_id", "order_id"])

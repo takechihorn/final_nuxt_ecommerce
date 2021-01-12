@@ -14,6 +14,7 @@ export const mutations = {
     //  yes -> find the index of payload in CI and update its qty by 1
     //  no -> push the item
     // else push the item
+    // increase cart, decrease cart
     let item = payload
     item = { ...item, quantity: 1 }
     if (state.cartItems.length > 0) {
@@ -29,7 +30,9 @@ export const mutations = {
   },
 }
 
-export const actions = {}
+export const actions = {
+  getProducts({ commit }) {},
+}
 
 export const getters = {
   cartItemCount: (state) => state.cartItemCount,
