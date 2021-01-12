@@ -1,6 +1,6 @@
 {
     "identityPoolName": "finalnuxtecommerceb77e4e4c_identitypool_b77e4e4c",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "finalnb77e4e4c",
     "userPoolName": "finalnuxtecommerceb77e4e4c_userpool_b77e4e4c",
     "autoVerifiedAttributes": [

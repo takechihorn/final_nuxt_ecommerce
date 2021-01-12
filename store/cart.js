@@ -29,13 +29,7 @@ export const mutations = {
   },
 }
 
-export const actions = {
-  async addToCart({ context, payload }) {
-    await
-    try {
-    } catch (error) {}
-  },
-}
+export const actions = {}
 
 export const getters = {
   cartItemCount: (state) => state.cartItemCount,

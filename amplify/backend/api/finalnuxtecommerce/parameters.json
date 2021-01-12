@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "finalnuxtecommerce",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authfinalnuxtecommerceb77e4e4c",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

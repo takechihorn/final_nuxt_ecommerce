@@ -8,6 +8,14 @@ export const mutations = {
   },
 }
 
-export const actions = () => ({})
+export const actions = () => ({
+  async getProduct(_, productId) {
+    return await API.graphql(
+      graphqlOperation(getProductQuery, {
+        id: productId,
+      })
+    )
+  },
+})
 
 export const getters = () => ({})
